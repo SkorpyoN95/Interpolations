@@ -1,0 +1,8 @@
+results = read.csv("gsl_poly.csv")
+results2 = read.csv("gsl_spline.csv")
+results3 = read.csv("gsl_akima.csv")
+points = read.csv("xy_dump.csv")
+library("ggplot2")
+ggplot(points,aes(x=x, y=y, colour="points")) + geom_point()
+last_plot() + geom_line(data=results2, aes(x=x, y=f, colour="cspline"))
+last_plot() + geom_line(data=results3, aes(x=x, y=f, colour="akima"))
